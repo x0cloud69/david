@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTS 음성 변환기</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            background-color: #ffe6e6;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .audio-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        audio {
+            width: 100%;
+            max-width: 400px;
+        }
+        .download-link {
+            margin-top: 15px;
+        }
+        .download-link a {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .download-link a:hover {
+            background-color: #218838;
+        }
+        .profile-image {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-image">
+            <img src="{{ url_for('static', filename='david.jpg') }}" alt="David" onerror="this.style.display='none'">
+        </div>
+        
+        <h1>🎤 TTS 음성 변환기</h1>
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="input_text">텍스트를 입력하세요:</label>
+                <input type="text" id="input_text" name="input_text" value="{{ input_text }}" required placeholder="예: 안녕하세요, 반갑습니다!">
+            </div>
+            
+            <div class="form-group">
+                <label for="lang">언어 선택:</label>
+                <select id="lang" name="lang">
+                    {% for code, name in languages.items() %}
+                        <option value="{{ code }}" {% if selected_lang == code %}selected{% endif %}>{{ name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit">🎵 음성 듣기</button>
+        </form>
+
+        {% if error %}
+            <div class="error">
+                <strong>⚠️ 오류:</strong> {{ error }}
+            </div>
+        {% endif %}
+
+        {% if audio %}
+            <div class="audio-container">
+                <h3>🎧 생성된 음성</h3>
+                <audio controls autoplay>
+                    <source src="data:audio/mpeg;base64,{{ audio }}" type="audio/mpeg">
+                    브라우저가 오디오 재생을 지원하지 않습니다.
+                </audio>
+                <div class="download-link">
+                    <a href="data:audio/mpeg;base64,{{ audio }}" download="tts_audio.mp3">MP3 다운로드</a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
