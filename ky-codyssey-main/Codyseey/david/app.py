@@ -8,6 +8,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 # Flask가 템플릿 폴더를 어떻게 찾는지 확인
+# Git Branch 확인
 print(f"현재 파일 경로: {__file__}")
 print(f"현재 디렉토리: {os.path.dirname(os.path.abspath(__file__))}")
 print(f"템플릿 폴더: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')}")
