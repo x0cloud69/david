@@ -28,6 +28,7 @@ def home():
     hostname = ''
   return render_template('index.html',debug=True,computername=hostname)
 
+#force test1.html
 @app.route('/test1')
 def test1():
   return render_template('test1.html')
