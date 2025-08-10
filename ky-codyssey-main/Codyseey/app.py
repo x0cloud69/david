@@ -6,6 +6,7 @@ from flask import Flask,render_template
 #직접 실행할 경우 "__main__"이 됩니다
 # 웹 애플리케이션 개발에 필요한 다양한 기능을 Flask 클래스에서 제공
 # Hunk 단위로 Git 커밋 가능
+# Font size 50 pt
 
 app = Flask(__name__)
 
