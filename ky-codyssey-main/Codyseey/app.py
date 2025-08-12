@@ -25,7 +25,7 @@ def home():
   if app.debug:
     hostname = '컴퓨터(인스턴스) : ' + socket.gethostname()
   else:
-    hostname = ''
+    hostname = 'Debug 모드가 아닙니다. 인스턴스 이름을 확인할 수 없습니다.'
   return render_template('index.html',debug=True,computername=hostname)
 
 #force test1.html
@@ -35,4 +35,4 @@ def test1():
 
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0', port=80, debug=True)
+   app.run(host='0.0.0.0', port=80, debug=False)
