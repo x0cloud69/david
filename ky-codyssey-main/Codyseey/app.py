@@ -28,10 +28,10 @@ def home():
     hostname = ''  
   return render_template('index.html',debug=True,computername=hostname)
 
-#force test1.html
-@app.route('/test1')
+#force test2.html
+@app.route('/test2')
 def test1():
-  return render_template('test1.html')
+  return render_template('test2.html')
 
 
 if __name__ == '__main__':
