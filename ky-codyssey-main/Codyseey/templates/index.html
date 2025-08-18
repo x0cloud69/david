@@ -4,8 +4,17 @@
   <title>컴퓨터 이름 표시</title>
 </head>
 <body>
-  <p>
+  {% if debug %}
+    <h1>디버그 모드</h1>
+      <p>
     {{ computername }}
   </p>
+  {% else %}
+    <h1>디버그 모드가 아닙니다</h1>
+      <p>
+    {{ computername }}
+  </p>
+  {% endif %}
+
 </body>
 </html>
