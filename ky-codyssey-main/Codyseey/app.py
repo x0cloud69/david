@@ -29,9 +29,9 @@ def home():
   return render_template('index.html',debug=True,computername=hostname)
 
 #Force test1.html ,,,,hh
-""" @app.route('/test1')
+@app.route('/test1')
 def test1():
-  return render_template('test1.html') """
+  return render_template('test1.html')
 
 
 if __name__ == '__main__':
