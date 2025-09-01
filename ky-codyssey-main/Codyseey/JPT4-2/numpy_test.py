@@ -1,14 +1,19 @@
 import numpy as np
 import os
+import csv
 
 
 arr1 = []
 arr2 = []
 arr3 = []
 
-file_path_1 = 'C:/codyssey/david/ky-codyssey-main/Codyseey/JPT4-2/mars_base/mars_base_main_parts-001.csv'
-file_path_2 = 'C:/codyssey/david/ky-codyssey-main/Codyseey/JPT4-2/mars_base/mars_base_main_parts-002.csv'
-file_path_3 = 'C:/codyssey/david/ky-codyssey-main/Codyseey/JPT4-2/mars_base/mars_base_main_parts-003.csv'
+# 현재 스크립트 파일의 디렉토리를 기준으로 경로 설정
+script_dir = os.path.dirname(os.path.abspath(__file__))
+mars_base_dir = os.path.join(script_dir, 'mars_base')
+
+file_path_1 = os.path.join(mars_base_dir, 'mars_base_main_parts-001.csv')
+file_path_2 = os.path.join(mars_base_dir, 'mars_base_main_parts-002.csv')
+file_path_3 = os.path.join(mars_base_dir, 'mars_base_main_parts-003.csv')
 
 arr1 = np.loadtxt(file_path_1, delimiter=',', skiprows =1, dtype=[('parts', 'U20'), ('strength', 'f8')])
 arr2 = np.loadtxt(file_path_2, delimiter=',', skiprows = 1, dtype = [('parts','U20'), ('strength','f8')])
@@ -86,42 +91,46 @@ try:
     # 결과를 구조화된 배열로 변환
     output_data = np.array(list(zip(filtered_parts,filtered_strength)),dtype=[('parts','U20'),('average_strength','f8')])
 
-    # 파일 저장 전 디렉토리 접근 권한 확인
-
-    file_path = os.path.join('C:', 'codyssey', 'david', 'ky-codyssey-main','Codyseey', 'JPT4-2', 'mars_base', 'parts_to_work_on.csv')
-   # output_dir = os.path.dirname(file_path) or '.'
-
-   # if not os.path.exists(output_dir):
-   #     raise FileNotFoundError(f"디렉토리가 존재하지 않습니다 : {output_dir}")
+    # 현재 스크립트 위치 기준으로 출력 파일 경로 설정
+    output_file = os.path.join(mars_base_dir, 'parts_to_work_on.csv')
     
-    if not os.path.exists(file_path):
-        if not os.access(file_path,os.W_OK):
-            raise PermissionError(f"파일에 쓰기 권한이 없습니다 : {file_path}")
+    # 디렉토리 존재 확인 및 생성
+    output_dir = os.path.dirname(output_file)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir, exist_ok=True)
+        print(f"디렉토리가 생성되었습니다: {output_dir}")
     
-    # csv 파일로 저장
-    np.savetxt(file_path,output_data,delimiter=',',
-               fmt=['%s','%.2f'],
-               header='part,average_strength',
-               comments='')
+    # 디렉토리 쓰기 권한 확인
+    if not os.access(output_dir, os.W_OK):
+        raise PermissionError(f"디렉토리에 쓰기 권한이 없습니다: {output_dir}")
     
-    print(f"파일이 성공적으로 저장되었습니다 : {file_path}")
-    print(f"필더링된 항목 수 : {len(filtered_parts)}")
+    # csv 모듈을 사용하여 빈 줄 없이 저장
+    with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        # 헤더 작성
+        writer.writerow(['part', 'average_strength'])
+        # 데이터 작성
+        for part, strength in output_data:
+            writer.writerow([part, f"{strength:.2f}"])
+    
+    print(f"파일이 성공적으로 저장되었습니다: {output_file}")
+    print(f"필터링된 항목 수: {len(filtered_parts)}")
 
     # 저장된 데이터 확인 및 출력
-    print("\n 저장된 데이터 :")
-    for part,strength in output_data:
-        print(f"{part}: {strength: .2f}")
+    print("\n저장된 데이터:")
+    for part, strength in output_data:
+        print(f"{part}: {strength:.2f}")
 
 except FileNotFoundError as e:
-    print(f"파일경로 오류 : {e}")
+    print(f"파일경로 오류: {e}")
 except PermissionError as e:
-    print(f"권한오류 : {e}")
+    print(f"권한오류: {e}")
 except ValueError as e:
-    print(f"데이타 처리중 오류 발생 : {e}")
+    print(f"데이터 처리중 오류 발생: {e}")
 except Exception as e:
-    print(f"예상치 못한 오류가 발생 했습니다 : {e}")
+    print(f"예상치 못한 오류가 발생했습니다: {e}")
 finally:
-    print("\n 작업이 완료되었습니다.")
+    print("\n작업이 완료되었습니다.")
 
 
 

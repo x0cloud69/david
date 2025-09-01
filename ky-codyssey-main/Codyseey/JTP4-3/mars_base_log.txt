@@ -1,0 +1,7 @@
+Date :  2025-08-29 10:10:11 
+mars_base_internal_temperature :  24.10 
+mars_base_external_temperature :  2.67 
+mars_base_internal_humidity :  53.00 
+mars_base_external_illuminance :  683.40 
+mars_base_internal_co2 :  0.03 
+mars_base_internal_oxygen :  5.18 

@@ -110,7 +110,7 @@ while True:
 
     try:
         material, thickness,diameter,volume,weight = sphere_area(diameter,material,thickness)
-        print(f"재질 => {material}, 지름 => {diameter}, 두께 => {thickness}, 면적 => {volume}  m², 무게 => {weight:.3f} kg" )
+        print(f"재질 => {material}, 지름 => {diameter}, 두께 => {thickness}, 면적 => {volume}  , 무게 => {weight:.3f} kg" )
     except ValueError as e:
         print(f"오류가 발생했습니다 : {e}")
 
