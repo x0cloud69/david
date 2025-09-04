@@ -288,6 +288,8 @@ def key_input():
 if __name__ == '__main__':
     print("멀티프로세스 MissionComputer 실행 시작")
     print(f"메인 프로세스 ID: {os.getpid()}")
+
+    
     
     # 멀티프로세스로 3개 인스턴스 실행
     process1 = multiprocessing.Process(target=run_computer_1, name="runComputer1")

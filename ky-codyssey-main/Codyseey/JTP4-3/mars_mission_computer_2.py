@@ -138,6 +138,7 @@ class MissionComputer:
                 # pause 상태일 때는 대기
                 print("시스템이 일시정지되었습니다. 재시작하려면 아무 키나 누르세요...")
                 time.sleep(1)
+                
             
             
 def key_input():

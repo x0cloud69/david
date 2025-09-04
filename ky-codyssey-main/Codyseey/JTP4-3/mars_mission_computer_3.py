@@ -142,7 +142,7 @@ class MissionComputer:
                 
                 if self.settings.get('cpu_cores', True):
                     load_data['CPU의 코어수'] = os.cpu_count()
-                
+                 
                 if self.settings.get('total_memory', True):
                     kernel32 = ctypes.windll.kernel32
                     total_memory = ctypes.c_ulonglong()
@@ -387,38 +387,38 @@ if __name__ == '__main__':
     RunComputer2 = MissionComputer(0,0,0,0,0,0)
     RunComputer3 = MissionComputer(0,0,0,0,0,0)
 
-    #     # 멀티프로세스로 3개 인스턴스 실행
-    # process1 = multiprocessing.Process(target=RunComputer1.get_mission_computer_info)
-    # process2 = multiprocessing.Process(target=RunComputer1.get_mission_computer_load)
-    # process3 = multiprocessing.Process(target=RunComputer1.get_sensor_data)
+        # 멀티프로세스로 3개 인스턴스 실행
+    process1 = multiprocessing.Process(target=RunComputer1.get_mission_computer_info)
+    process2 = multiprocessing.Process(target=RunComputer2.get_mission_computer_load)
+    process3 = multiprocessing.Process(target=RunComputer3.get_sensor_data)
     
-    # # 모든 프로세스 시작
-    # print("프로세스들을 시작합니다...")
-    # process1.start()
-    # process2.start()
-    # process3.start()
+    # 모든 프로세스 시작
+    print("프로세스들을 시작합니다...")
+    process1.start()
+    process2.start()
+    process3.start()
 
 
     
     # 입력 스레드 시작
-    input_thread = threading.Thread(target=key_input)
-    input_thread.daemon = True
-    input_thread.start()
+    # input_thread = threading.Thread(target=key_input)
+    # input_thread.daemon = True
+    # input_thread.start()
     
-    # 시스템 정보 출력 스레드 시작
-    info_thread = threading.Thread(target=RunComputer.get_mission_computer_info)
-    info_thread.daemon = True
-    info_thread.start()
+    # # 시스템 정보 출력 스레드 시작
+    # info_thread = threading.Thread(target=RunComputer.get_mission_computer_info)
+    # info_thread.daemon = True
+    # info_thread.start()
     
-    # 시스템 부하 정보 출력 스레드 시작
-    load_thread = threading.Thread(target=RunComputer.get_mission_computer_load)
-    load_thread.daemon = True
-    load_thread.start()
+    # # 시스템 부하 정보 출력 스레드 시작
+    # load_thread = threading.Thread(target=RunComputer.get_mission_computer_load)
+    # load_thread.daemon = True
+    # load_thread.start()
     
-    #센서 데이터 수집 스레드 시작
-    sensor_thread = threading.Thread(target=RunComputer.get_sensor_data)
-    sensor_thread.daemon = True
-    sensor_thread.start()
+    # #센서 데이터 수집 스레드 시작
+    # sensor_thread = threading.Thread(target=RunComputer.get_sensor_data)
+    # sensor_thread.daemon = True
+    # sensor_thread.start()
     
     # 메인 스레드에서 pause 상태 확인하며 프로그램 실행
     try:
