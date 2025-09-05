@@ -1,60 +1,39 @@
-import zipfile
+alpha = 'abcdefghijklmnopqrstuvz'
+
+import string
+tmp = ['a'] * 6
+index = 1
+for i in range(6 - 1, -1, -1):
+    index, r = divmod(index, len(alpha))
+    tmp[i] = alpha[r]
+    print(''.join(tmp))
+
+chars = string.digits + string.ascii_lowercase + string.ascii_uppercase + string.punctuation
+print(chars)
+    
+print("digits:", string.digits)           # 숫자 (0-9)
+print("ascii_lowercase:", string.ascii_lowercase)   # 소문자 (a-z)
+print("ascii_uppercase:", string.ascii_uppercase)   # 대문자 (A-Z)
+print("ascii_letters:", string.ascii_letters)       # 모든 알파벳 (a-z, A-Z)
+print("punctuation:", string.punctuation)          # 특수문자
+print("whitespace:", string.whitespace)           # 공백 문자들
+print("printable:", string.printable)             # 출력 가능한 모든 문자
+print("Formatter",string.Formatter)
+
+
+from string import Template
+
+# 템플릿 사용 예시
+template = Template('Hello, $name!')
+result = template.substitute(name='Python')
+print(result)  # 출력: Hello, Python!
+
+print(dir(string))  # string 모듈의 모든 속성과 메서드 출력 
+
 import os
-
-base_pwd = [1,2,3,4,5,6,7,8,9,0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-
-pwd_list_1 = base_pwd
-pwd_list_2 = base_pwd
-pwd_list_3 = base_pwd
-pwd_list_4 = base_pwd
-pwd_list_5 = base_pwd
-pwd_list_6 = base_pwd
-
-temp_pwd = ''
-
-seq = 0
-success = False
-zip_path = 'C:\codyssey\emergency_storage_key.zip'
-#zip_path = 'C:\codyssey\input_log.zip'
-try:
-    for i1 in range(len(pwd_list_1)):
-        if success:
-            break
-        for i2 in range(len(pwd_list_2)):
-            if success:
-                break
-            for i3 in range(len(pwd_list_3)):
-                if success:
-                    break
-                for i4 in range(len(pwd_list_4)):
-                    if success:
-                        break
-                    for i5 in range(len(pwd_list_5)):
-                        if success:
-                            break
-                        for i6 in range(len(pwd_list_6)):
-                            temp_pwd = str(pwd_list_1[i1])+str(pwd_list_2[i2])+str(pwd_list_3[i3])+str(pwd_list_4[i4])+str(pwd_list_5[i5])+str(pwd_list_6[i6])
-                            
-                            with zipfile.ZipFile(zip_path,'r') as zip_file:
-                                extract_folder = "extracted_files"
-                                os.makedirs(extract_folder,exist_ok=True)
-
-                                encode_pwd = temp_pwd.encode() if temp_pwd else None
-                                try:
-                                    zip_file.extractall(extract_folder,pwd=encode_pwd)
-                                    print(f"암축이 해제 되었습니다.")
-                                    success = True
-                                    break
-                                except:
-                                    seq += 1
-                                    print(f"반복횟수 : {seq}  Password : {temp_pwd}")
-                                    continue
-except KeyboardInterrupt:
-    print("\n 프로그램이 강제 종료 되었습니다")
-finally:
-    if success:
-        print(f"\n 암호를 찾았습니다.")
-        print(f"암호 : {temp_pwd}")
-        print(f"시도 횟수 : {seq}")
+import multiprocessing
+from multiprocessing import cpu_count
 
 
+num_processes = cpu_count()
+print(f"Using {num_processes} CPU cores")
