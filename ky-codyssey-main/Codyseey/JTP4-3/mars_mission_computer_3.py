@@ -9,7 +9,6 @@ import time
 import threading
 import numpy as np
 import subprocess
-import multiprocessing
 
 env_values_mean = {}
 
@@ -142,7 +141,7 @@ class MissionComputer:
                 
                 if self.settings.get('cpu_cores', True):
                     load_data['CPU의 코어수'] = os.cpu_count()
-                 
+                
                 if self.settings.get('total_memory', True):
                     kernel32 = ctypes.windll.kernel32
                     total_memory = ctypes.c_ulonglong()
@@ -166,57 +165,6 @@ class MissionComputer:
                 # pause 상태일 때는 대기
                 time.sleep(1)
                 continue  
-
-    # def get_mission_computer_load(self):
-    #     while True:
-    #         if not pause:
-    #             try:
-    #                 load_data = {}
-                    
-    #                 # CPU 사용량 계산 (근사값)
-    #                 time1 = time.perf_counter()
-    #                 time.sleep(0.1)
-    #                 time2 = time.perf_counter()
-    #                 cpu_load = min(100, ((time2 - time1) / 0.1) * 100)
-    #                 load_data['CPU 사용량'] = f"{cpu_load:.1f}%"
-                    
-    #                 # 메모리 사용량 계산
-    #                 kernel32 = ctypes.windll.kernel32
-    #                 class MEMORYSTATUSEX(ctypes.Structure):
-    #                     _fields_ = [
-    #                         ("dwLength", ctypes.c_ulong),
-    #                         ("dwMemoryLoad", ctypes.c_ulong),
-    #                         ("ullTotalPhys", ctypes.c_ulonglong),
-    #                         ("ullAvailPhys", ctypes.c_ulonglong),
-    #                         ("ullTotalPageFile", ctypes.c_ulonglong),
-    #                         ("ullAvailPageFile", ctypes.c_ulonglong),
-    #                         ("ullTotalVirtual", ctypes.c_ulonglong),
-    #                         ("ullAvailVirtual", ctypes.c_ulonglong),
-    #                         ("ullAvailExtendedVirtual", ctypes.c_ulonglong),
-    #                     ]
-                    
-    #                 stat = MEMORYSTATUSEX()
-    #                 stat.dwLength = ctypes.sizeof(stat)
-    #                 kernel32.GlobalMemoryStatusEx(ctypes.byref(stat))
-    #                 load_data['메모리 사용량'] = f"{stat.dwMemoryLoad}%"
-                    
-    #                 # 결과 출력
-    #                 print(json.dumps(load_data, indent=4, ensure_ascii=False))
-                    
-    #                 time.sleep(2)  # 2초 간격으로 업데이트
-                    
-    #             except Exception as e:
-    #                 error_data = {
-    #                     'error': f"시스템 정보를 가져오는 중 오류 발생: {str(e)}",
-    #                     'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    #                 }
-    #                 print(json.dumps(error_data, indent=4, ensure_ascii=False))
-    #                 time.sleep(2)
-    #         else:
-    #             time.sleep(1)
-    #             continue
-
-
       
     
     def get_mission_computer_load(self):
@@ -229,7 +177,7 @@ class MissionComputer:
                         cpu_cmd = 'wmic cpu get loadpercentage'
                         cpu = subprocess.check_output(cpu_cmd,shell=True).decode()
                         cpu_load = cpu.split('\n')[1].strip()
-                        load_data['CPU 사용량'] = f"{cpu_load}%"
+                        load_data['cpu_load'] = f"{cpu_load}%"
                     
                     if self.settings.get('free_memory', True) or self.settings.get('total_visible_memory', True):
                         mem_cmd = 'wmic OS get FreePhysicalMemory,TotalVisibleMemorySize /Value'
@@ -253,12 +201,7 @@ class MissionComputer:
                                 memory_info['free_physical_memory_kb'] = free_memory
                             if self.settings.get('total_visible_memory', True):
                                 memory_info['total_visible_memory_kb'] = total_memory
-
-                            total_memory_int = int(total_memory)
-                            free_memory_int = int(free_memory)
-                            # 메모리 사용량을 퍼센트로 계산
-                            memory_usage_percent = ((total_memory_int - free_memory_int) / total_memory_int) * 100
-                            load_data['메모리 사용량'] = f"{memory_usage_percent:.1f}%"    
+                            load_data['memory_info'] = memory_info
                     
                     # 타임스탬프 추가 (설정에 따라)
                     if self.settings.get('timestamp', True):
@@ -292,7 +235,6 @@ class MissionComputer:
     
     def get_sensor_data(self):
         while True:  # 무한 루프로 변경
-            ds = DummySensor(0,0,0,0,0,0)
             if not pause:  # pause가 False일 때만 센서 데이터 수집
                 # ds 인스턴스의 환경값을 가져와서 설정
                 ds.set_env()  # 먼저 환경값 설정
@@ -371,7 +313,6 @@ def key_input():
             print(f'오류 발생: {e}')
             continue 
       
-
 if __name__ == '__main__':
     print("프로그램 시작...")
     print("'s': 일시정지, 'q': 종료, 기타키: 재시작")
@@ -379,43 +320,23 @@ if __name__ == '__main__':
     # MissionComputer 인스턴스 생성
     RunComputer = MissionComputer(0,0,0,0,0,0)
     ds = DummySensor(0,0,0,0,0,0)
-
-    ####################################################
-    # runComputer1 ~ 3 인스턴스 생성
-    ####################################################
-    RunComputer1 = MissionComputer(0,0,0,0,0,0)
-    RunComputer2 = MissionComputer(0,0,0,0,0,0)
-    RunComputer3 = MissionComputer(0,0,0,0,0,0)
-
-        # 멀티프로세스로 3개 인스턴스 실행
-    process1 = multiprocessing.Process(target=RunComputer1.get_mission_computer_info)
-    process2 = multiprocessing.Process(target=RunComputer2.get_mission_computer_load)
-    process3 = multiprocessing.Process(target=RunComputer3.get_sensor_data)
-    
-    # 모든 프로세스 시작
-    print("프로세스들을 시작합니다...")
-    process1.start()
-    process2.start()
-    process3.start()
-
-
     
     # 입력 스레드 시작
-    # input_thread = threading.Thread(target=key_input)
-    # input_thread.daemon = True
-    # input_thread.start()
+    input_thread = threading.Thread(target=key_input)
+    input_thread.daemon = True
+    input_thread.start()
     
-    # # 시스템 정보 출력 스레드 시작
-    # info_thread = threading.Thread(target=RunComputer.get_mission_computer_info)
-    # info_thread.daemon = True
-    # info_thread.start()
+    # 시스템 정보 출력 스레드 시작
+    info_thread = threading.Thread(target=RunComputer.get_mission_computer_info)
+    info_thread.daemon = True
+    info_thread.start()
     
-    # # 시스템 부하 정보 출력 스레드 시작
-    # load_thread = threading.Thread(target=RunComputer.get_mission_computer_load)
-    # load_thread.daemon = True
-    # load_thread.start()
+    # 시스템 부하 정보 출력 스레드 시작
+    load_thread = threading.Thread(target=RunComputer.get_mission_computer_load)
+    load_thread.daemon = True
+    load_thread.start()
     
-    # #센서 데이터 수집 스레드 시작
+    # 센서 데이터 수집 스레드 시작
     # sensor_thread = threading.Thread(target=RunComputer.get_sensor_data)
     # sensor_thread.daemon = True
     # sensor_thread.start()
