@@ -1,0 +1,1288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>372</width>
+    <height>545</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="display_result">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>35</y>
+      <width>341</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>23</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+	background:rgb(255, 255, 255);
+ 
+}</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>135</y>
+      <width>340</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="3">
+      <widget class="QPushButton" name="btn_8">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>8</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QPushButton" name="btn_1">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="btn_cls">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(140, 140, 140);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>C</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QPushButton" name="btn_9">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>9</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="btn_par">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(140, 140, 140);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>( )</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="5">
+      <widget class="QPushButton" name="btn_mul">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(91, 91, 91);
+	color: rgb(255, 255, 255); 
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>X</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QPushButton" name="btn_4">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="btn_7">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>7</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QPushButton" name="btn_divid">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(91, 91, 91);
+	color: rgb(255, 255, 255); 
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>÷</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QPushButton" name="btn_5">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>5</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="4">
+      <widget class="QPushButton" name="btn_6">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>6</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="5">
+      <widget class="QPushButton" name="btn_minus">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(91, 91, 91);
+	color: rgb(255, 255, 255); 
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QPushButton" name="btn_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QPushButton" name="btn_3">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>3</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="5">
+      <widget class="QPushButton" name="btn_plus">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(91, 91, 91);
+	color: rgb(255, 255, 255); 
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="3">
+      <widget class="QPushButton" name="btn_0">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="4">
+      <widget class="QPushButton" name="btn_point">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>.</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="5">
+      <widget class="QPushButton" name="btn_result">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	color: rgb(255, 255, 255);
+	background-color: rgb(35, 255, 11); 
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>=</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <widget class="QPushButton" name="btn_sign">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>+,-</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QPushButton" name="btn_ratio">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>4</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(140, 140, 140);
+    color: black;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    /* 원형을 위한 설정 */
+    width: 50px;           /* 너비 설정 */
+    height: 50px;          /* 높이 설정 (너비와 동일하게) */
+    border-radius: 25px;    /* 너비/높이의 절반으로 설정 */
+    
+    margin: 10px;           /* 모든 방향의 여백을 한 번에 설정 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>%</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="display_process">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>6</y>
+      <width>341</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+	background:rgb(255, 255, 255);
+ 
+}</string>
+    </property>
+    <property name="text">
+     <string>공식</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="label_science">
+    <property name="geometry">
+     <rect>
+      <x>248</x>
+      <y>100</y>
+      <width>111</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <bold>true</bold>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="text">
+     <string>공학계산기</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_backspace">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>100</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Backspace(◀)</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

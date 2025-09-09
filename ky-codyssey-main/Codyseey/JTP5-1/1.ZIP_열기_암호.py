@@ -1,7 +1,7 @@
 import zipfile
 import os
 
-zip_path = input("Zip File 경로를 입력 하세요 : ")
+zip_path = 'C:\codyssey\emergency_storage_key.zip'
 zip_passwd = input("Zip File 의 암호를 입력 하세요 : ")
 
 try:

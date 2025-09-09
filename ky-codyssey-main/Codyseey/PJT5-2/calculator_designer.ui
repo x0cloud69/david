@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>330</width>
+    <height>580</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>계산기</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow { background-color: rgb(240, 240, 240) }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="display">
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    font-family: 'Arial', sans-serif;
+    color: black;
+    background:rgb(255, 255, 255);
+    padding: 20px;
+    margin-top: 20px;     /* 위쪽 여백 */
+    margin-bottom: 20px;  /* 아래쪽 여백 */
+    margin-left: 20px;    /* 왼쪽 여백 */
+    margin-right: 20px;   /* 오른쪽 여백 */
+    border-radius: 15px;    
+    font-size: 36px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QPushButton" name="btn_clear">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+            background-color: rgb(255, 255, 255);
+            color: black;
+            border-radius: 10px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+            font-size: 20px;      /* 폰트 크기 증가 */
+            font-weight: bold;
+            min-width: 45px;     /* 버튼 크기 증가 */
+            min-height: 45px;    /* 버튼 크기 증가 */
+        
+            border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>C</string>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>8</width>
+          <height>8</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="btn_plus_minus">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>±</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="btn_percent">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="btn_divide">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>÷</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="btn_7">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>7</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="btn_8">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>8</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="btn_9">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>9</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="btn_multiply">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>×</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QPushButton" name="btn_4">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="btn_5">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QPushButton" name="btn_6">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="btn_subtract">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="btn_1">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="btn_2">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="btn_3">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QPushButton" name="btn_add">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" colspan="2">
+       <widget class="QPushButton" name="btn_0">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QPushButton" name="btn_decimal">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="QPushButton" name="btn_equals">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border-radius: 30px;  /* 원형 모양을 위해 더 큰 값으로 설정 */
+    font-size: 20px;      /* 폰트 크기 증가 */
+    font-weight: bold;
+    min-width: 65px;     /* 버튼 크기 증가 */
+    min-height: 65px;    /* 버튼 크기 증가 */
+    margin-top: 5px;     /* 위쪽 여백 */
+    margin-bottom: 5px;  /* 아래쪽 여백 */
+    margin-left: 5px;    /* 왼쪽 여백 */
+    margin-right: 5px;   /* 오른쪽 여백 */
+    border: none;
+}
+
+QPushButton:hover {
+ - background-color: rgb(240, 240, 240);
+    opacity: 0.8;
+}
+
+QPushButton:pressed {
+    background-color: rgb(220, 220, 220);
+    opacity: 0.6;
+}
+</string>
+        </property>
+        <property name="text">
+         <string>=</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>330</width>
+     <height>33</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
