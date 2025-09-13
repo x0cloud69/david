@@ -8,7 +8,10 @@ from datetime import datetime
 app = Flask(__name__)
 
 # Flask가 템플릿 폴더를 어떻게 찾는지 확인
+<<<<<<< HEAD
 # Git Branch 확인
+=======
+>>>>>>> ce49b728e666dc113f3dda61af2c42885dcf1a81
 print(f"현재 파일 경로: {__file__}")
 print(f"현재 디렉토리: {os.path.dirname(os.path.abspath(__file__))}")
 print(f"템플릿 폴더: {os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')}")
@@ -95,11 +98,14 @@ def index():
     #LANGUAGES 딕셔너리는 템플릿에서 사용되는 언어 목록을 정의'
     return render_template('index.html', error=error, audio=audio, input_text=input_text, selected_lang=selected_lang, languages=LANGUAGES, download_link=download_link)
 
+<<<<<<< HEAD
 @app.route('/menu')
 def menu():
     """메뉴 페이지"""
     return render_template('menu.html')
 
+=======
+>>>>>>> ce49b728e666dc113f3dda61af2c42885dcf1a81
 @app.route('/download/<filename>')
 def download_file(filename):
     """MP3 파일 다운로드 (보너스 과제 2)"""

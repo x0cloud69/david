@@ -1,0 +1,21 @@
+# 시스템 정보 출력 설정
+system_info: true
+cpu_info: true
+memory_info: true
+timestamp: true
+
+# 세부 항목 설정
+operating_system: true
+os_version: true
+cpu_type: true
+cpu_cores: false
+total_memory: true
+
+# 시스템 부하 정보 설정
+cpu_load: true
+free_memory: true
+total_visible_memory: true
+
+# 센서 데이터 설정
+sensor_data: true
+sensor_averages: true
