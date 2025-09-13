@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>334</width>
+    <height>651</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>공학용 계산기</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="6">
+     <widget class="QLabel" name="display_process">
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 12px;
+    color: #666;
+}</string>
+      </property>
+      <property name="text">
+       <string>공식</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="6">
+     <widget class="QLabel" name="display_result">
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    background-color: #000;
+    color: #0f0;
+    border: 2px solid #333;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="btn_sin">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>sin</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="btn_cos">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>cos</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QPushButton" name="btn_tan">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>tan</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QPushButton" name="btn_log">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>log</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4">
+     <widget class="QPushButton" name="btn_ln">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>ln</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="5">
+     <widget class="QPushButton" name="btn_sqrt">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>√</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="btn_asin">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>sin⁻¹</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="btn_acos">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>cos⁻¹</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QPushButton" name="btn_atan">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>tan⁻¹</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QPushButton" name="btn_pow">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>x^y</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QPushButton" name="btn_square">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>x²</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="5">
+     <widget class="QPushButton" name="btn_cube">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>x³</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="btn_pi">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #FF9800;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>π</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QPushButton" name="btn_e">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #FF9800;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>e</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QPushButton" name="btn_fact">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>n!</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QPushButton" name="btn_abs">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>|x|</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="4">
+     <widget class="QPushButton" name="btn_ceil">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>⌈x⌉</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="5">
+     <widget class="QPushButton" name="btn_floor">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>⌊x⌋</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QPushButton" name="btn_cls">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>C</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QPushButton" name="btn_backspace">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>⌫</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QPushButton" name="btn_par">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #9c27b0;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>()</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="3">
+     <widget class="QPushButton" name="btn_divid">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>÷</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="4">
+     <widget class="QPushButton" name="btn_ratio">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #9c27b0;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>%</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="5">
+     <widget class="QPushButton" name="btn_sign">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #9c27b0;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>±</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QPushButton" name="btn_7">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>7</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="btn_8">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>8</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QPushButton" name="btn_9">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>9</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="3">
+     <widget class="QPushButton" name="btn_mul">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>×</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="4" colspan="2">
+     <widget class="QPushButton" name="btn_result">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>=</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QPushButton" name="btn_4">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>4</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QPushButton" name="btn_5">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="2">
+     <widget class="QPushButton" name="btn_6">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>6</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="3">
+     <widget class="QPushButton" name="btn_minus">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="4" colspan="2">
+     <widget class="QPushButton" name="btn_1_over_x">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>1/x</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QPushButton" name="btn_1">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QPushButton" name="btn_2">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="2">
+     <widget class="QPushButton" name="btn_3">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="3">
+     <widget class="QPushButton" name="btn_plus">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="4" colspan="2">
+     <widget class="QPushButton" name="btn_10_pow">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>10^x</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0" colspan="2">
+     <widget class="QPushButton" name="btn_0">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="2">
+     <widget class="QPushButton" name="btn_point">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #424242;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>.</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="3">
+     <widget class="QPushButton" name="btn_e_pow">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>e^x</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="4" colspan="2">
+     <widget class="QPushButton" name="btn_2_pow">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>2^x</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
+     <widget class="QPushButton" name="btn_sinh">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #9C27B0;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>sinh</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="1">
+     <widget class="QPushButton" name="btn_cosh">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #9C27B0;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>cosh</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="2">
+     <widget class="QPushButton" name="btn_tanh">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #9C27B0;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>tanh</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="3">
+     <widget class="QPushButton" name="btn_angle_mode">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #FF5722;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>DEG</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="4">
+     <widget class="QPushButton" name="btn_random">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #607D8B;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>RAND</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="5">
+     <widget class="QPushButton" name="btn_mod">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>mod</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="0">
+     <widget class="QPushButton" name="btn_mc">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #795548;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>MC</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="1">
+     <widget class="QPushButton" name="btn_mr">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #795548;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>MR</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="2">
+     <widget class="QPushButton" name="btn_ms">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #795548;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>MS</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="3">
+     <widget class="QPushButton" name="btn_m_plus">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #795548;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>M+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="4">
+     <widget class="QPushButton" name="btn_m_minus">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #795548;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>M-</string>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="5">
+     <widget class="QPushButton" name="btn_clear_entry">
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}</string>
+      </property>
+      <property name="text">
+       <string>CE</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>334</width>
+     <height>33</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

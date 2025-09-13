@@ -1,0 +1,25 @@
+1. 자동 병합 충돌 처리
+로컬 커밋 로그에 <hr> 추가 내역이 있는가?
+GitHub History에 “둥글레차” 버튼 추가 커밋이 있는가?
+병합 결과가 다음과 같이 반영되었는가?
+
+...
+<hr>
+<button name="menu2" style="width:70pt;">녹차</button><br>
+<button name="menu2" style="width:70pt;">둥글레차</button>
+...
+templates/menu.html의 로컬과 원격 저장소 내용이 동일한가?
+
+PASS FAIL
+2	
+2. 동일 위치 충돌 처리
+로컬 커밋에 test1 라우트 추가 내역이 있는가?
+GitHub 커밋에 test2 라우트 추가 내역이 있는가?
+충돌 해결 후 app.py에 test2가 포함되어 있는가?
+로컬과 원격 저장소의 app.py 내용이 일치하는가?
+PASS FAIL
+3	
+3. 강제 push 처리
+GitHub History에서 강제로 push된 내역이 있는가?
+git push --force 명령어를 사용했는가?
+최종적으로 로컬과 원격 저장소의 app.py 파일이 동일한가?

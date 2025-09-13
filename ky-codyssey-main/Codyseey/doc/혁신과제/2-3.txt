@@ -1,0 +1,15 @@
+1. README.md 작성 및 마크다운 적용
+VS Code에 Markdown All in One 플러그인이 설치되었는가?
+README.md 커밋 내역이 작업 디렉토리 및 GitHub History에서 확인되는가?
+GitHub 웹사이트에서 마크다운 문법이 정상 적용되어 보이는가?
+PASS FAIL
+2	
+2. GitHub 블로그 구성
+블로그용 저장소가 Public으로 생성되었는가?
+
+저장소 clone 시 다음 명령어를 사용했는가?
+
+git clone https://github.com/계정이름/계정이름.github.io
+index.html 페이지의 제목과 본문 내용이 웹 브라우저에서 정상적으로 출력되는가?
+
+커밋 내역이 작업 디렉토리 및 GitHub History에서 확인되는가?

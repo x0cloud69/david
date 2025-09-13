@@ -1,0 +1,9 @@
+[2025-07-22 06:00:03] Text: '대한민구', Lang: ko, Success: True
+[2025-07-22 13:03:30] Text: '안녕하세요', Lang: ko, Success: True
+[2025-07-22 13:04:07] Text: '안녕하세요', Lang: zh, Success: True
+[2025-07-22 13:04:09] Text: '안녕하세요', Lang: zh, Success: True
+[2025-07-22 13:04:43] Text: '안녕하세요', Lang: fr, Success: False, Error: 지원하지 않는 언어 코드입니다: fr. 지원 언어: ko, en, ja, es, de, zh
+[2025-07-22 15:03:28] Text: 'ㅇㄹㄴㅇㄹ', Lang: en, Success: True
+[2025-07-22 15:33:40] Text: '안녕하세요', Lang: ko, Success: True
+[2025-07-22 15:33:57] Text: '안녕하세요', Lang: de, Success: True
+[2025-08-03 11:37:10] Text: '안녕하세요', Lang: ko, Success: True
