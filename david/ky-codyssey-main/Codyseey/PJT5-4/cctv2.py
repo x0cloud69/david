@@ -14,6 +14,7 @@ import time
 
 file_path = os.path.dirname(os.path.abspath(__file__))
 zip_path = os.path.join(file_path,"cctv.zip")
+
 # with zipfile.ZipFile(zip_path) as zip_file:
 #   zip_file.extractall("CCTV")
 #   print("CCTV.ZIP 파일이 압축 해제 되었습니다.")
