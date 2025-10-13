@@ -4,7 +4,7 @@ import numpy as np
 #import wave
 import os
 from datetime import datetime
-import speech_recognition as sr 
+from google.cloud import speech_v1 
 
 # 특정 device로부터 오디오 입력 받기
 def record_from_device(device_index, duration, fs=44100):
@@ -61,35 +61,32 @@ def FileSearch(dirctory, keyword):
     return matched_files
 
 def tranfer_audio_file(file_path):
-    # speech_recognition 라이브러리를 사용하여 오디오 파일을 텍스트로 변환하는 함수
+
+    # Google Cloud Speech-to-Text API를 사용하여 오디오 파일을 텍스트로 변환하는 함수
+
+    client = speech_v1.SpeechClient()
+
+    # 오디오 파일 읽기
+    with open(file_path, "rb") as audio_file:
+        content = audio_file.read()
+
+    # 오디오 설정
+    audio = speech_v1.RecongitionAudio(content=content)
+    config = speech_v1.RecognitionConfig(
+         language_code= "ko-KR",
+         encoding= speech_v1.RecognitionConfig.AudioEncoding.LINEAR16,
+         sample_rate_hertz= 16000
+    )
+
+    # 음성인식 요청
+    response = client.recognize(config=config, audio=audio)
+
+    #결과처리
+    for result in response.results:
+        print(f"텍스트 변환 결과 : {result.alternatives[0].transcript}")
+        print(f"정확도 : {result.alternatives[0].confidence}")
     
-    try:
-        # 음성 인식기 초기화
-        r = sr.Recognizer()
-        
-        # 오디오 파일 읽기
-        with sr.AudioFile(file_path) as source:
-            print("오디오 파일을 읽는 중...")
-            audio = r.record(source)
-        
-        # 음성 인식 수행 (Google Web Speech API 사용)
-        print("음성 인식 중...")
-        try:
-            # 한국어로 인식 시도
-            text = r.recognize_google(audio, language='ko-KR')
-            print(f"텍스트 변환 결과 : {text}")
-            print("정확도 : Google Web Speech API는 정확도를 제공하지 않습니다.")
-            return text
-        except sr.UnknownValueError:
-            print("음성을 인식할 수 없습니다.")
-            return None
-        except sr.RequestError as e:
-            print(f"음성 인식 서비스 오류: {e}")
-            return None
-            
-    except Exception as e:
-        print(f"오류 발생: {e}")
-        return None
+    return response.results
 
 
    

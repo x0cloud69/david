@@ -29,35 +29,35 @@ print("전체 데이터 개수:", len(f_merged))
 print("테스트 데이터 개수:", len(f_test))
 print("훈련 데이터 개수:", len(f_train))
 
-# 1단계: 데이터 구조 확인
-print("\n=== 데이터 구조 확인 ===")
-print("컬럼 정보:")
-print(f_merged.info())
+# # 1단계: 데이터 구조 확인
+# print("\n=== 데이터 구조 확인 ===")
+# print("컬럼 정보:")
+# print(f_merged.info())
 
-# 2단계: Transported 분포 확인
-print("\n=== Transported 분포 ===")
-transported_counts = f_train['Transported'].value_counts()
-print("Transported 값 분포:")
-print(transported_counts)
-print(f"전송된 비율: {transported_counts[True] / len(f_train) * 100:.1f}%")
+# # 2단계: Transported 분포 확인
+# print("\n=== Transported 분포 ===")
+# transported_counts = f_train['Transported'].value_counts()
+# print("Transported 값 분포:")
+# print(transported_counts)
+# print(f"전송된 비율: {transported_counts[True] / len(f_train) * 100:.1f}%")
 
 # 3단계: 숫자형 변수들과 Transported의 상관관계 분석
 print("\n=== 기존 숫자형 변수 상관관계 분석 ===")
 
 # 숫자형 컬럼만 선택 (훈련 데이터만 사용 - Transported 값이 있는 데이터)
-numeric_columns = ['Age', 'RoomService', 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck']
+numeric_columns = ['Age', 'RoomService', 'CryoSleep','VIP','FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck']
 
 # Transported를 숫자로 변환 (True=1, False=0)
 f_train_numeric = f_train.copy()
 f_train_numeric['Transported'] = f_train_numeric['Transported'].astype(int)
 
-print("각 숫자형 변수와 Transported의 상관계수:")
+print("각 숫자형 변수와 Transported의 피어슨 상관계수:")
 for col in numeric_columns:
     if col in f_train_numeric.columns:
         correlation = f_train_numeric[col].corr(f_train_numeric['Transported'])
         print(f"{col:15}: {correlation:.4f}")
 
-#%% 4단계: 범주형 변수들과 Transported의 관계 분석 (올바른 방법)
+#%% 4단계: 범주형 변수들과 Transported의 관계 분석 (단순교차표 방법)
 print("\n=== 범주형 변수 관계 분석 ===")
 
 categorical_columns = ['HomePlanet', 'CryoSleep', 'Destination', 'VIP']  # HomePlanet 다시 포함
@@ -86,16 +86,16 @@ sorted_correlations = sorted(correlations.items(), key=lambda x: x[1], reverse=T
 for i, (col, corr) in enumerate(sorted_correlations, 1):
     print(f"{i}. {col:15}: {corr:.4f}")
 
-print("\n2. 범주형 변수 중요도 (비율 차이 기준):")
-print("- CryoSleep: True(81.8%) vs False(32.9%) - 약 49% 차이!")
-print("- HomePlanet: Europa(65.9%) vs Earth(42.4%) - 약 23% 차이")
-print("- Destination: 55 Cancri e(61.0%) vs TRAPPIST-1e(47.1%) - 약 14% 차이")
-print("- VIP: 일반(50.6%) vs VIP(38.2%) - 약 12% 차이")
+# print("\n2. 범주형 변수 중요도 (비율 차이 기준):")
+# print("- CryoSleep: True(81.8%) vs False(32.9%) - 약 49% 차이!")
+# print("- HomePlanet: Europa(65.9%) vs Earth(42.4%) - 약 23% 차이")
+# print("- Destination: 55 Cancri e(61.0%) vs TRAPPIST-1e(47.1%) - 약 14% 차이")
+# print("- VIP: 일반(50.6%) vs VIP(38.2%) - 약 12% 차이")
 
-print("\n3. 분석 방법 설명:")
-print("- 숫자형 변수: 상관계수 (-1~1, 절댓값이 클수록 관련성 높음)")
-print("- 범주형 변수: 각 카테고리별 전송 비율 차이 (차이가 클수록 관련성 높음)")
-print("- HomePlanet은 순서가 없는 명목형 변수이므로 비율 분석이 올바른 방법")
+# print("\n3. 분석 방법 설명:")
+# print("- 숫자형 변수: 상관계수 (-1~1, 절댓값이 클수록 관련성 높음)")
+# print("- 범주형 변수: 각 카테고리별 전송 비율 차이 (차이가 클수록 관련성 높음)")
+# print("- HomePlanet은 순서가 없는 명목형 변수이므로 비율 분석이 올바른 방법")
 
 #%% 6단계: 나이대별 Transported 비율 분석 및 시각화
 
