@@ -45,9 +45,9 @@ with open(file_path, 'r') as file:
 #     #  보너스스
 #     #################################################
     
-     if any(word in transfer_text for word in dict_password):
-        print(f"shift : {i} result : {transfer_text}")
-        break    
+    #  if any(word in transfer_text for word in dict_password):
+    #     print(f"shift : {i} result : {transfer_text}")
+    #     # break    
    
     
   # num = int(input("몇번째 번호가 맞는지 입력하세요 : "))

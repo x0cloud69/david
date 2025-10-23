@@ -13,13 +13,13 @@ print(df)
 #컬럼들 중에서 일반가구원을 제외한 나머지 컬럼들을 모두 삭제한다.
 df_copy = df.copy()
 
-headers = df_copy.columns
-print(headers)
+# headers = df_copy.columns
+# print(headers)
 
 keep_list = ['시점','성별','연령별','일반가구원']
 
 df_copy=df_copy[keep_list]
-headers=df_copy.columns
+headers=df_copy.columns                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 print(headers)
 print(df_copy)
 

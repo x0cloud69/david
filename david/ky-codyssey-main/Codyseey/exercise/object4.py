@@ -39,7 +39,8 @@ def validate_header(header):
         raise ValueError("Title의 message 제목이 다릅니다.")
      return True
 
-import datetime 
+import datetime
+from sys import exception 
 
 def f_list_without_event(f_list):
      f_list_final=[]
@@ -94,7 +95,7 @@ def convert_log_dict(f_list):
        raise ValueError("Invalid Convert to tuple")
     return f_list_dict
     
-if __name__ == "__main__":     
+def main():
    f_raw = read_log()
    # 1. 원본 그대로 출력 , Error 처리 
    if f_raw is not None:
@@ -113,6 +114,15 @@ if __name__ == "__main__":
       print(f"{e}")
          
 
-
+if __name__ == "__main__":  
+   main()
    
+   # FileNotFoundError
+   #    print(File open error.)
+   # UnicodeDecodeError:
+   #    print(decoding error.)     
+   # ValueError, IndexError:
+   #    print(invalid log format.)
+   # exception:
+   #    print(Processing error.)   
 
