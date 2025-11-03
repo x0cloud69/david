@@ -2,7 +2,6 @@ def solution(ability):
   n = len(ability) # 학생 수
   m = len(ability[0]) # 과목수
   visited = [False] * n # 학생 방문 여부
-
   
   def recursive_dfs(depth, total, visited):
     if depth == m:
