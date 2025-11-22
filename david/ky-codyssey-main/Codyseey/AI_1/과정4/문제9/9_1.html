@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR 인사이트 대시보드</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <nav class="bg-blue-600 p-4 text-white">
+    <h1 class="text-2xl font-bold">HR 클라우드 솔루션</h1>
+  </nav>
+  <main class="container mx-auto mt-8 px-4">
+    <h2 class="text-2xl font-semibold mb-6">HR 인사이트 대시보드</h2>
+    
+    <!-- 퇴직 위험도 -->
+    <div class="bg-white p-4 rounded-lg shadow mb-8">
+      <h3 class="text-lg font-semibold mb-2">퇴직 위험도</h3>
+      <div class="h-64">
+        <canvas id="retirementRiskChart"></canvas>
+      </div>
+    </div>
+
+    <!-- 조직 건강도 -->
+    <div class="bg-white p-4 rounded-lg shadow mb-8">
+      <h3 class="text-lg font-semibold mb-2">조직 건강도</h3>
+      <div class="h-64">
+        <canvas id="orgHealthChart"></canvas>
+      </div>
+    </div>
+
+    <!-- 조직별 적정 인원 -->
+    <div class="bg-white p-4 rounded-lg shadow mb-8">
+      <h3 class="text-lg font-semibold mb-2">조직별 적정 인원</h3>
+      <div class="h-64">
+        <canvas id="optimalHeadcountChart"></canvas>
+      </div>
+    </div>
+
+    <!-- 나에게 맞는 조직과 직책 -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h3 class="text-lg font-semibold mb-2">나에게 맞는 조직과 직책</h3>
+      <div class="bg-blue-100 p-4 rounded-lg h-64 overflow-auto">
+        <p class="font-semibold text-xl mb-2">추천 조직: IT 부서</p>
+        <p class="font-semibold text-xl mb-4">추천 직책: 프로젝트 매니저</p>
+        <p class="text-gray-700 mb-4">
+          귀하의 기술 스킬과 리더십 능력을 고려했을 때, IT 부서에서 프로젝트 매니저로 일하는 것이 가장 적합할 것으로 보입니다.
+        </p>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Chart.js Scripts -->
+  <script>
+    // 퇴직 위험도 차트
+    const retirementRiskCtx = document.getElementById('retirementRiskChart').getContext('2d');
+    new Chart(retirementRiskCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Alice', 'Bob', 'Charlie', 'David'],
+        datasets: [{
+          label: '퇴직 위험도',
+          data: [20, 40, 70, 90],
+          backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56']
+        }]
+      }
+    });
+
+    // 조직 건강도 차트
+    const orgHealthCtx = document.getElementById('orgHealthChart').getContext('2d');
+    new Chart(orgHealthCtx, {
+      type: 'line',
+      data: {
+        labels: ['1월', '2월', '3월', '4월'],
+        datasets: [{
+          label: '조직 건강도 점수',
+          data: [75, 80, 85, 90],
+          borderColor: '#36a2eb',
+          fill: false
+        }]
+      }
+    });
+
+    // 조직별 적정 인원 차트
+    const optimalHeadcountCtx = document.getElementById('optimalHeadcountChart').getContext('2d');
+    new Chart(optimalHeadcountCtx, {
+      type: 'pie',
+      data: {
+        labels: ['IT', 'HR', 'Finance', 'Marketing'],
+        datasets: [{
+          label: '적정 인원',
+          data: [50, 30, 40, 20],
+          backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56']
+        }]
+      }
+    });
+  </script>
+</body>
+</html>

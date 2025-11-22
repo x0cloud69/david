@@ -4,7 +4,9 @@ def solution(bandage, health, attacks):
     last_attack_time = attacks[-1][0]  # 마지막 공격 시간
     
     # 공격 시간을 키로 하는 딕셔너리 생성
-    attack_dict = {time: damage for time, damage in attacks}
+    # attack_dict = {time: damage for time, damage in attacks}
+    attack_dict = dict(attacks)
+    print(attack_dict)
     
     current_health = health  # 현재 체력
     consecutive_time = 0  # 연속 시전 시간

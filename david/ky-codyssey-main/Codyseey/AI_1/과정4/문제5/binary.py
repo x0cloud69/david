@@ -82,30 +82,70 @@ class binarytree:
             self.inorder_recursive(node.left,result)
             result.append(node.data)
             self.inorder_recursive(node.right,result)
-            
-bst = binarytree()
 
-print("--- 원소 추가 ----")
-elements = [50,30,70,20,40,60,80]
 
-for e1 in elements:
-    bst.insert(e1)
-    print(f"{e1} 추가됨")
+def menu():
+    print("=================================")
+    print("0. 종료")
+    print("1. (이진) Node 삽입")
+    print("2. (이진) Node 삭제")
+    print("3. (이진) Node 찾기")
+    print("4. (이진) Node 현황")
+    print("=================================")
     
-print("\n 현재 트리 (중위순회) : " , bst.inorder_traversal())
+def main():
+    bst = binarytree()
+    
+def main():
+    bst = binarytree()
+    
+    while True:
+        menu()
+        try:
+            _num_ = input("원하는 작업을 선택 하세요 : ").strip()
+            if _num_ == '0':
+                return
+            if _num_ == '1':
+               _value_ = input("등록하고자 하는 값을 등록 하세요 : "). strip()
+               bst.insert(_value_)     
+            if _num_ == '2':
+               _value_ = input("삭제제하고자 하는 값을 등록 하세요 : "). strip()
+               bst.delete(_value_)
+            if _num_ == '3':
+               _value_ = input("찾고자 하는 값을 등록 하세요 : "). strip()
+               print(bst.find(_value_))
+            if _num_ == '4':
+               print(bst.inorder_traversal())
+        except ValueError:
+            print("indexError") 
+            return       
+            
 
-print("\n -- 원소 탐색")
-print("값 40 찾기 : ",bst.find(40))
-print("값 90 찾기 : ",bst.find(90))
+if __name__ == '__main__':
+    main()    
 
-print("\n--- 원소 삭제---")
-bst.delete(20)
-print("리프 노드 20 삭제 후 :", bst.inorder_traversal())
 
-# 자식이 하나인 노드 삭제
-bst.delete(30)
-print("자식이 하니인 노드 30 삭제 후 : ", bst.inorder_traversal())
+# print("--- 원소 추가 ----")
+# elements = [50,30,70,20,40,60,80]
 
-# 자식이 둘인 노드 삭제
-bst.delete(50)
-print("자식이 둘인 노드 50 삭제 후 : ", bst.inorder_traversal())    
+# for e1 in elements:
+#     bst.insert(e1)
+#     print(f"{e1} 추가됨")
+    
+# print("\n 현재 트리 (중위순회) : " , bst.inorder_traversal())
+
+# print("\n -- 원소 탐색")
+# print("값 40 찾기 : ",bst.find(40))
+# print("값 90 찾기 : ",bst.find(90))
+
+# print("\n--- 원소 삭제---")
+# bst.delete(20)
+# print("리프 노드 20 삭제 후 :", bst.inorder_traversal())
+
+# # 자식이 하나인 노드 삭제
+# bst.delete(30)
+# print("자식이 하니인 노드 30 삭제 후 : ", bst.inorder_traversal())
+
+# # 자식이 둘인 노드 삭제
+# bst.delete(50)
+# print("자식이 둘인 노드 50 삭제 후 : ", bst.inorder_traversal())    
